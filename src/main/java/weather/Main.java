@@ -1,6 +1,7 @@
-package weatherApp;
+package weather;
 
 public class Main {
+
     public static void main(String[] args) {
         LocationRepository locationRepository = new LocationRepository();
         LocationService locationService = new LocationService(locationRepository);

@@ -1,4 +1,4 @@
-package weatherApp;
+package weather;
 
 public interface LocationRepositoryInt {
     Location save(Location entry);

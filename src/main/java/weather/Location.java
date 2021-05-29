@@ -1,6 +1,5 @@
-package weatherApp;
+package weather;
 
-import jdk.jfr.DataAmount;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,9 +18,8 @@ public class Location {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int longitude; // dlugosc geograficzna
-    private int latitude;  // szerokosc geograficzna
+    private int longitude;
+    private int latitude;
     private String region;
     private String country_name;
-
 }

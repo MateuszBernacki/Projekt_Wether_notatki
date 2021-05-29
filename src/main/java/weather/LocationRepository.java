@@ -1,4 +1,4 @@
-package weatherApp;
+package weather;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

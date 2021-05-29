@@ -1,4 +1,4 @@
-package weatherApp;
+package weather;
 
 import java.util.Scanner;
 
@@ -42,6 +42,8 @@ public class UserInterface {
         int longitude = scanner.nextInt();
         System.out.println("Set latitude: ");
         int latitude = scanner.nextInt();
+
+        // todo use locationController
 
         System.out.println();
     }
