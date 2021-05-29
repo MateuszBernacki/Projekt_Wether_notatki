@@ -38,6 +38,8 @@ public class UserInterface {
         String country_name = scanner.nextLine();
         System.out.println("Select region: ");
         String region = scanner.nextLine();
+        System.out.println("Select city: ");
+        String city = scanner.nextLine();
         System.out.println("Set longitude: ");
         int longitude = scanner.nextInt();
         System.out.println("Set latitude: ");

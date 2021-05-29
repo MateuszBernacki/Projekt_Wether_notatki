@@ -22,4 +22,5 @@ public class Location {
     private int latitude;
     private String region;
     private String country_name;
+    private String city;
 }

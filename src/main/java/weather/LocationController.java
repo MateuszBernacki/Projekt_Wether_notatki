@@ -12,10 +12,10 @@ public class LocationController {
         this.locationService = locationService;
     }
 
-    public String createNewLocation(String countryName, String region, int longitude, int latitude) { // todo city value is missing
+    public String createNewLocation(String countryName, String region,String city, int longitude, int latitude) { // todo city value is missing
         try {
             Location newLocation = locationService
-                    .createNewLocation("countryName", "region", 12, 14); // todo pass there method parameters
+                    .createNewLocation("countryName", "region","city", 12, 14); // todo pass there method parameters
             return objectMapper.writeValueAsString(newLocation);
         } catch (JsonProcessingException e) {
             return "{\"error message\": \"" + e.getMessage() + "\"}";
