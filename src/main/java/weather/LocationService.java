@@ -15,11 +15,11 @@ public class LocationService {
                         .FAIL_ON_UNKNOWN_PROPERTIES, false);
     }
 
-    Location createNewLocation(String country_name, String region, String city, int longitude, int latitude) { // todo rename country_name to countryName and city value is missing
-        if (country_name == null || country_name.isEmpty()) { // todo "   " -> isBlank() instead of isEmpty()
+    Location createNewLocation(String countryName, String region, String city, int longitude, int latitude) { // todo rename countryName to countryName and city value is missing
+        if (countryName == null || countryName.isBlank()) { // todo "   " -> isBlank() instead of isEmpty()
             throw new RuntimeException("Country name do not exist.");
         }
-        if (region.isBlank()) { // todo what if region is null -> NullPointerException -> add region != null &&
+        if (region != null && region.isBlank()) { // todo what if region is null -> NullPointerException -> add region != null &&
             region = null;
         }
         if (longitude <= -90 || longitude >= 90) { // todo 90 and -90 are correct
@@ -29,7 +29,7 @@ public class LocationService {
             throw new IllegalArgumentException("latitude do not exist. Chose latitude between 180 & -180");
         }
 
-        Location location = new Location(null, longitude, latitude, city, region, country_name);
+        Location location = new Location(null, longitude, latitude, city, region, countryName);
 
         return locationRepository.save(location);
     }
