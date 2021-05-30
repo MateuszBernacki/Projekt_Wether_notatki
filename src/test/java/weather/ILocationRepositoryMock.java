@@ -3,9 +3,10 @@ package weather;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LocatioRepositoryMock extends LocationRepository implements LocationRepositoryInt{
+public class ILocationRepositoryMock implements ILocationRepository {
 
-    private List <Location> entries= new ArrayList<>();
+    private List<Location> entries = new ArrayList<>();
+
     @Override
     public Location save(Location entry) {
         entry.setId(1L);

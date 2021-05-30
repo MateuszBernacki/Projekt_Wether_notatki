@@ -19,7 +19,7 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String region;
-    private String country_name;
+    private String countryName;
     private String city;
     private int longitude;
     private int latitude;

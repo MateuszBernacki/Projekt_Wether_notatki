@@ -1,5 +1,5 @@
 package weather;
 
-public interface LocationRepositoryInt {
+public interface ILocationRepository {
     Location save(Location entry);
 }

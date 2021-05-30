@@ -5,11 +5,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class LocationService {
 
-    private final LocationRepository locationRepository;
+    private final ILocationRepository locationRepository;
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
-    public LocationService(LocationRepository locationRepository) {
+    public LocationService(ILocationRepository locationRepository) {
         this.locationRepository = locationRepository;
         this.objectMapper
                 .configure(DeserializationFeature
@@ -33,7 +33,7 @@ public class LocationService {
             throw new IllegalArgumentException("latitude do not exist. Chose latitude between 180 & -180");
         }
 
-        Location location = new Location(null, countryName, region, city, longitude, latitude);
+        Location location = new Location(null, region, countryName, city, longitude, latitude);
 
         return locationRepository.save(location);
     }

@@ -7,7 +7,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-public class LocationRepository implements LocationRepositoryInt{
+public class LocationRepository implements ILocationRepository {
 
     private SessionFactory sessionFactory;
 
