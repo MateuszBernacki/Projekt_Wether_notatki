@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class LocationService {
+
     private final LocationRepository locationRepository;
 
     private ObjectMapper objectMapper = new ObjectMapper();
@@ -22,14 +23,14 @@ public class LocationService {
         if (region != null && region.isBlank()) { // todo what if region is null -> NullPointerException -> add region != null &&
             region = null;
         }
-        if (longitude <= -90 || longitude >= 90) { // todo 90 and -90 are correct
+        if (longitude < -90 || longitude > 90) {
             throw new IllegalArgumentException("Longitude do not exist. Chose Longitude between 90 & -90");
         }
-        if (latitude <= -180 || latitude >= 180) { // todo 180 and -180 are correct
+        if (latitude < -180 || latitude > 180) {
             throw new IllegalArgumentException("latitude do not exist. Chose latitude between 180 & -180");
         }
 
-        Location location = new Location(null, longitude, latitude, city, region, countryName);
+        Location location = new Location(null, countryName, region, city, longitude, latitude);
 
         return locationRepository.save(location);
     }
