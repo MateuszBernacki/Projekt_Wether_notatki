@@ -23,6 +23,9 @@ public class LocationService {
         if (region != null && region.isBlank()) { // todo what if region is null -> NullPointerException -> add region != null &&
             region = null;
         }
+        if (city == null || city.isBlank()) { // todo "   " -> isBlank() instead of isEmpty()
+            throw new RuntimeException("Country name do not exist.");
+        }
         if (longitude < -90 || longitude > 90) {
             throw new IllegalArgumentException("Longitude do not exist. Chose Longitude between 90 & -90");
         }

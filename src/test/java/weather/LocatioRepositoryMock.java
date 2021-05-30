@@ -12,4 +12,5 @@ public class LocatioRepositoryMock extends LocationRepository implements Locatio
         entries.add(entry);
         return entry;
     }
+
 }

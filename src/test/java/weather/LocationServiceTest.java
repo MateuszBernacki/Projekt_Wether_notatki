@@ -32,10 +32,20 @@ public class LocationServiceTest {
     }
 
     @Test
-    public void createNewLocation_titleIsEmpty_throwsAnException() {
+    public void createNewLocation_countryNameIsEmpty_throwsAnException() {
         // when
         Throwable result = catchThrowable(() -> locationService.createNewLocation("","region", "city",23,32));
         // then
         assertThat(result).isExactlyInstanceOf(RuntimeException.class);
     }
+
+    @Test
+    public void createNewLocation_regionIsEmpty(){
+        //when
+        Throwable result = catchThrowable(() -> locationService.createNewLocation("country","", "city",23,32));
+        //then
+
+    }
+
+
 }
