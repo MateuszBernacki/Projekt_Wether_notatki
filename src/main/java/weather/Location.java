@@ -21,6 +21,6 @@ public class Location {
     private String region;
     private String countryName;
     private String city;
-    private int longitude;
-    private int latitude;
+    private double longitude;
+    private double latitude;
 }
