@@ -57,6 +57,22 @@ public class UserInterface {
     }
 
     private void showAllLocations() {
+        String httpResponse = locationController.showAllLocations();
+        System.out.println("Information form the server" + httpResponse);
+        System.out.println();
+    }
+
+
+    public void getForecast(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Select city ID: ");
+        Long locationId = scanner.nextLong();
+        System.out.println("Select day from today up to 8 days forward: " );
+        Integer date = scanner.nextInt();
+
+        String httpResponse = forecastController.getForecast(locationId,date);
+        System.out.println("Infomration from server: " + httpResponse);
+        System.out.println();
 
     }
 }
