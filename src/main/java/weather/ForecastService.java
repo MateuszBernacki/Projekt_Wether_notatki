@@ -2,6 +2,7 @@ package weather;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
 
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -9,19 +10,13 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.LocalDate;
 
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 public class ForecastService {
 
+    private final  LocationRepository locationRepository;
+   private final  ObjectMapper objectMapper ;
+   private final IForecastRepository iForecastRepository;
 
-
-    final  LocationRepository locationRepository;
-   final  ObjectMapper objectMapper ;
-
-    public ForecastService(LocationRepository locationRepository, ObjectMapper objectMapper) {
-        this.locationRepository = locationRepository;
-        this.objectMapper = objectMapper;
-        this.objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-    }
 
     public Forecast getForecastWeat(Long locationId, Integer date) {
 
@@ -52,8 +47,7 @@ public class ForecastService {
                             .build())
                     .orElseThrow(()-> new RuntimeException("Weather not found"));
 
-            return  forecast;
-//todo cryate reposytory
+            return  iForecastRepository.save(forecast);
         } catch (Exception e) {
             throw new RuntimeException(e.getMessage());
         }

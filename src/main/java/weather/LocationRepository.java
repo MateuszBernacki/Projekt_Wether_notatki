@@ -41,9 +41,13 @@ public class LocationRepository implements ILocationRepository {
 
     @Override
     public Optional<Location> findById(Long id) {
+    Session session = sessionFactory.openSession();
+    Transaction transaction = session.beginTransaction();
 
-        //todo do zrobienia
-        return Optional.empty();
+    Optional<Location> location = Optional.ofNullable(session.find(Location.class,id));
+    transaction.commit();
+    session.close();
+        return location;
     }
 }
 

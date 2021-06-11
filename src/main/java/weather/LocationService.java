@@ -8,7 +8,6 @@ import java.util.List;
 public class LocationService {
 
     private final ILocationRepository locationRepository;
-
     private ObjectMapper objectMapper = new ObjectMapper();
 
     public LocationService(ILocationRepository locationRepository) {

@@ -4,9 +4,15 @@ import java.util.Scanner;
 
 public class UserInterface {
 
-    public UserInterface(LocationController locationController) {
+    private final LocationController locationController;
+    private final ForecastController forecastController;
 
+    public UserInterface(LocationController locationController, ForecastController forecastController) {
+        this.locationController = locationController;
+        this.forecastController = forecastController;
     }
+
+
 
     public void run() {
         System.out.println("Aplikacja jest uruchomiona!");
@@ -48,5 +54,9 @@ public class UserInterface {
         // todo use locationController
 
         System.out.println();
+    }
+
+    private void showAllLocations() {
+
     }
 }
