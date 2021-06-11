@@ -11,7 +11,7 @@ public class ForecastServiceTest  {
         Location location = new Location(null, "Malopolska", "Poland", "Krakow", 45.2, 12.1 );
         iLocationRepositoryMock.save(location);
 
-        ForecastService forecastService = new ForecastService();
+        ForecastRepositoryMock forecastRepositoryMock = new ForecastRepositoryMock();
         Forecast forecast = forecastService.getForecastWeat(1L,1);
         System.out.println(forecast);
     }
